@@ -13,16 +13,39 @@ struct HomeView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            Text("Home")
-                .font(.largeTitle)
+            //MARK: - HEADER
+            
+            Image("character-2")
+                .resizable()
+                .scaledToFit()
+                .padding()
+            
+            //MARK: - CENTER
+            
+            Text("The time that leads to mastery is dependent on the intensity of our focus.")
+                .font(.title3)
+                .fontWeight(.light)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding()
+            
+            //MARK: - FOOTER
             
             Button {
                 // switch OnboardingView
                 isOnboardingViewActive = true
             } label: {
+                // don't have to use HStack (automatically rendered like HStack)
+                Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
+                
                 Text("Restart")
-            }
-        }//: VSTACK
+                    .font(.system(.title3, design: .rounded))
+                    .fontWeight(.bold)
+            } //: Button
+            .buttonStyle(.borderedProminent)
+            .buttonBorderShape(.capsule)
+            .controlSize(.large)
+        } //: VSTACK
     }
 }
 
